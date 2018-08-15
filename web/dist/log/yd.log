@@ -1,0 +1,11 @@
+[2018-08-15T22:02:50.441] [ERROR] cheese - ReferenceError: result is not defined
+    at /Users/admin/Public/point/web/dist/controllers/indexController.js:19:58
+    at dispatch (/Users/admin/Public/point/web/node_modules/koa-simple-router/index.js:186:18)
+    at Router._lookup (/Users/admin/Public/point/web/node_modules/koa-simple-router/index.js:198:12)
+    at /Users/admin/Public/point/web/node_modules/koa-simple-router/index.js:138:21
+    at dispatch (/Users/admin/Public/point/web/node_modules/koa-compose/index.js:42:32)
+    at app.use (/Users/admin/Public/point/web/dist/middlewares/errorHandler.js:17:19)
+    at dispatch (/Users/admin/Public/point/web/node_modules/koa-compose/index.js:42:32)
+    at app.use (/Users/admin/Public/point/web/dist/middlewares/errorHandler.js:10:23)
+    at dispatch (/Users/admin/Public/point/web/node_modules/koa-compose/index.js:42:32)
+    at /Users/admin/Public/point/web/node_modules/koa-compose/index.js:34:12
