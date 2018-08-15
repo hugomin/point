@@ -20,3 +20,6 @@ server:prod
 gulp-rollup  
 rollup-plugin-replace  设置环境变量
 队列   gulp-sequence
+
+## eslint
+gulp-eslint
