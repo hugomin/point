@@ -19,6 +19,8 @@ import
 server:prod
 gulp-rollup  
 rollup-plugin-replace  设置环境变量
-队列   gulp-sequence
+队列   gulp-sequence d
+我是开发分支2  
+## eslint
+gulp-eslint
 
-我是开发分支2
