@@ -7,7 +7,7 @@
  * @class
  * 
 */
-export default class IndexModel {
+export default class IndexService {
     /**
      * @constructor
      * @param {string} app  koa2 上下文

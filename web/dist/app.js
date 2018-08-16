@@ -12,10 +12,6 @@ var _config = require("./config");
 
 var _config2 = _interopRequireDefault(_config);
 
-var _controllers = require("./controllers");
-
-var _controllers2 = _interopRequireDefault(_controllers);
-
 var _koaSwig = require("koa-swig");
 
 var _koaSwig2 = _interopRequireDefault(_koaSwig);
@@ -36,11 +32,27 @@ var _log4js = require("log4js");
 
 var _log4js2 = _interopRequireDefault(_log4js);
 
+var _awilix = require("awilix");
+
+var _awilixKoa = require("awilix-koa");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const app = new _koa2.default();
 // const logger = log4js.getLogger();
+//创建 IOC容器
+const container = (0, _awilix.createContainer)();
+// 每一次请求与都是new一次类
+app.use((0, _awilixKoa.scopePerRequest)(container));
 
+//装载service
+container.loadModules([__dirname + "/service/*.js"], {
+    formatName: "camelCase",
+    resolverOptions: {
+        lifetime: _awilix.Lifetime.SCOPED
+
+    }
+});
 _log4js2.default.configure({
     appenders: { cheese: { type: 'file', filename: __dirname + '/log/yd.log' } },
     categories: { default: { appenders: ['cheese'], level: 'error' } }
@@ -55,7 +67,8 @@ app.context.render = _co2.default.wrap((0, _koaSwig2.default)({
     writeBody: false
 }));
 _errorHandler2.default.error(app, logger);
-(0, _controllers2.default)(app, _koaSimpleRouter2.default);
+//自动注册所有的路由
+app.use((0, _awilixKoa.loadControllers)('controllers/*.js', { cwd: __dirname }));
 app.use((0, _koaStatic2.default)(_config2.default.staticDir));
 app.listen(_config2.default.port, () => {
     console.log(`yd-web listening on ${_config2.default.port}`);

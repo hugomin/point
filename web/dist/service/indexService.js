@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", {
  * @class
  * 
 */
-class IndexModel {
+let IndexService = class IndexService {
   /**
    * @constructor
    * @param {string} app  koa2 上下文
@@ -32,5 +32,5 @@ class IndexModel {
       }, 1000);
     });
   }
-}
-exports.default = IndexModel;
+};
+exports.default = IndexService;

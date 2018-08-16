@@ -1,16 +1,18 @@
-import IndexModel from "../models/indexModel.js";
-class IndexController{
-    constructor(){
-
+import { GET, route } from 'awilix-koa'
+export default
+@route("/")
+@route("/index.html")
+class IndexController {
+    constructor({ indexService }) {
+        this.indexService = indexService;
     }
-    indexAction(){
-        return async (ctx,next) => {
-            const IndexModelIns = new IndexModel();
-            const result = await IndexModelIns.getData();
-            ctx.body = await ctx.render('index',
-            {data:result});
-        }
+    @GET()
+    async indexAction(ctx) {
+        //ctx.query => ajax
+        //ctx.params.id =>/test/:id
+        const result = await this.indexService.getData();
+        ctx.body = await ctx.render('index',
+            { data: result });
     }
 }
-export default IndexController;
 //路由  router

@@ -1,26 +1,14 @@
+# 第二版
+##  路由 Inversify.js
+##  awii
 
-#    第二讲
-##   Inversify  接口  面向切面
-#### service自动的注释到model里面
-##  切面  控制反转
-控制反转  容器 面向切面  事先注入  自动注入（constructor）
-model  数据库
-controllers   前端
+1.删除路由
+2.awilix-koa
+3.装饰器编译  babel-plugin-transform-decorators-legacy
 
-##  容错
-腾讯公益404
-log4.js
-
-## 日志 
-log4.js  日志管理工具
-import
-
-## 流清洗
-server:prod
-gulp-rollup  
-rollup-plugin-replace  设置环境变量
-队列   gulp-sequence d
-我是开发分支2  
-## eslint
-gulp-eslint
-
+##依赖注入 控制反转
+1.创建一个容器  存放所有路由依赖外面的service  将serveice注入到类里面  通过constructor
+2.拉过来service  需要new 一次类
+service自动注入controller   面向切面插入到constructor  外面依赖的类 要new一个
+1.面向切面 插入构造函数（给下面的方法实现） service注入controller
+2. 每一次保证外面的service创建new 实例
