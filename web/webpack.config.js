@@ -1,6 +1,7 @@
 const argv = require("yargs-parser")(process.argv.slice(2));
 const merge = require("webpack-merge");
 const mode = argv.mode || "development";
+const _modeFlag = (mode === "production"?true:false)
 const _mergeConfig = require(`./config/webpack.${mode}.js`);
 const glob = require("glob");
 const { join } = require("path");
@@ -23,7 +24,8 @@ for (let item of files) {
             inject: false,
             chunks: [entryKey],
             minify: {
-
+                removeAttributeQuotes:_modeFlag,
+                collapseWhitespace:_modeFlag
             }
         }))
     }
