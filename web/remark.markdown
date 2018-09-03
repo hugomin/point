@@ -12,3 +12,11 @@
 service自动注入controller   面向切面插入到constructor  外面依赖的类 要new一个
 1.面向切面 插入构造函数（给下面的方法实现） service注入controller
 2. 每一次保证外面的service创建new 实例
+
+## 模板引擎  swig
+##  reuqire 和import有区别
+
+#### regexper.com
+####  webpack-livereload-plugin
+
+const $ = require("$) as any
